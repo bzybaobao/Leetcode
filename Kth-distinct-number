@@ -1,0 +1,31 @@
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+          int i=0;
+         int current=0;
+        
+       if(nums.length==1)
+       {
+           return nums[0];
+       }
+       
+       TreeSet<Integer> ts= new TreeSet<Integer>();
+       for(int b:nums)
+       {
+           ts.add(b);
+       }
+       Iterator<Integer> it = ts.iterator();
+      
+        while(it.hasNext()){
+                
+                if(i==(ts.size()-k))
+                {
+                     //System.out.println(i);
+                     current=it.next();
+                     break;
+                }
+               current=it.next();
+               i++;
+            }
+        return current;
+    }
+}
