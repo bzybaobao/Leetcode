@@ -1,0 +1,39 @@
+public class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List <List<Integer>> tri =new ArrayList<List<Integer>>();
+        if(numRows ==0)
+        {
+            return tri;
+        }
+        for(int i=0;i<numRows;i++)
+        {
+             List <Integer> lst=new ArrayList <Integer>();
+             
+             for(int j=0;j<i+1;j++)
+             {
+                 if(j==0||j==i)
+                 {
+                     lst.add(1);
+                 }
+                 else
+                 {
+                     lst.add(tri.get(i-1).get(j-1)+tri.get(i-1).get(j));
+                 }
+             }
+             tri.add(lst);
+        }
+        
+        return tri;
+        
+        
+    }
+}
+
+display        每一个list首尾都是0和1  下一个list的中间数是上一个list的2个数的和   比如  1,1 =2 1,2=3
+[
+     [1],
+    [1,1],
+   [1,2,1],
+  [1,3,3,1],
+ [1,4,6,4,1]
+]
