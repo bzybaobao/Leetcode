@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    
+    public static void getMax(int []arr)
+    {
+        Map<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            if (!hm.containsKey(arr[i])) {
+                hm.put(arr[i], 1);
+            } else {
+                hm.put(arr[i], (Integer) hm.get(arr[i]) + 1);
+            }
+        }
+           
+        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }
+    }
+
+    
+	public static void main (String[] args) {
+	    int []arr={1,2,1,2,1,2};
+	    getMax(arr);
+	}
+}
+遍历hashmap
